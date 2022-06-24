@@ -9,31 +9,58 @@ import SwiftUI
 
 struct EventsListView: View {
     let viewModel: TeamEventsInterface
-
+    
     @State private var isShowingDetailView = false
     @State private var index = 0
-
+    
     var body: some View {
         NavigationLink(destination: TeamEventDetailScreen(viewModel: viewModel.events[0]), isActive: $isShowingDetailView) { EmptyView() }
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 0) {
-
-                ForEach(viewModel.events, id: \.self) { event in
-                    EventView(viewModel: event)
-                        .frame(maxWidth: .infinity)
-                        .onTapGesture {
-                            isShowingDetailView = true
-                        }
-
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 0) {
+                    
+                    ForEach(viewModel.events, id: \.self) { event in
+                        EventView(viewModel: event)
+                            .frame(maxWidth: .infinity)
+                            .onTapGesture {
+                                isShowingDetailView = true
+                            }
+                        
+                        Spacer()
+                    }
+                }
+                .padding(.vertical, 24)
+                .frame(maxWidth: .infinity)
+                .background(Color.red)
+                
+                
+            }
+            
+            VStack {
+                Spacer()
+                HStack {
                     Spacer()
+                    Button(action: {
+                        //self.items.append(Item(value: "Item"))
+                    }, label: {
+                        Text("+")
+                            .font(.system(.largeTitle))
+                            .frame(width: 77, height: 70)
+                            .foregroundColor(Color.white)
+                            .padding(.bottom, 7)
+                    })
+                    .background(Color.blue)
+                    .cornerRadius(38.5)
+                    .padding()
+                    .shadow(color: Color.black.opacity(0.3),
+                            radius: 3,
+                            x: 3,
+                            y: 3)
                 }
             }
-            .padding(.vertical, 24)
-            .frame(maxWidth: .infinity)
-            .background(Color.red)
-            
-
         }
+        
+        
     }
 }
 
