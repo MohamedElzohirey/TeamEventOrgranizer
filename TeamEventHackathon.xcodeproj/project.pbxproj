@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0C40A12865C5D20026426F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0C40A02865C5D20026426F /* GoogleService-Info.plist */; };
 		7D81EE4F2865BE020074B4E4 /* TeamEventHackathonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81EE4E2865BE020074B4E4 /* TeamEventHackathonApp.swift */; };
 		7D81EE512865BE020074B4E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81EE502865BE020074B4E4 /* ContentView.swift */; };
 		7D81EE532865BE030074B4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D81EE522865BE030074B4E4 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B0C40A02865C5D20026426F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D81EE4B2865BE020074B4E4 /* TeamEventHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamEventHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D81EE4E2865BE020074B4E4 /* TeamEventHackathonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEventHackathonApp.swift; sourceTree = "<group>"; };
 		7D81EE502865BE020074B4E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		7D81EE4D2865BE020074B4E4 /* TeamEventHackathon */ = {
 			isa = PBXGroup;
 			children = (
+				3B0C40A02865C5D20026426F /* GoogleService-Info.plist */,
 				7D81EE4E2865BE020074B4E4 /* TeamEventHackathonApp.swift */,
 				7D81EE502865BE020074B4E4 /* ContentView.swift */,
 				7D81EE522865BE030074B4E4 /* Assets.xcassets */,
@@ -233,6 +236,7 @@
 			files = (
 				7D81EE562865BE030074B4E4 /* Preview Assets.xcassets in Resources */,
 				7D81EE532865BE030074B4E4 /* Assets.xcassets in Resources */,
+				3B0C40A12865C5D20026426F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

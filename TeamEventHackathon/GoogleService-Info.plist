@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>592780490162-f9iuj3c9qn1398skvlv8m9461sififsf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.592780490162-f9iuj3c9qn1398skvlv8m9461sififsf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAztGnntiqZ_BQndEcQGGXMBhvHFV1IS2c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>592780490162</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>check24.hackathon.TeamEventHackathon</string>
+	<key>PROJECT_ID</key>
+	<string>teameventorganizer-236cb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>teameventorganizer-236cb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:592780490162:ios:ddccbd35811df96e16e0ab</string>
+</dict>
+</plist>
