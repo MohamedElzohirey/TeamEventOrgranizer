@@ -18,7 +18,8 @@ struct EventView: View {
             .frame(maxWidth: .infinity)
             
 
-            Image(systemName: "heart.fill")
+            Image("event")
+                .resizable()
                 .frame(width: 100, height: 100, alignment: .center)
             
         }
