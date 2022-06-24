@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct EventView: View {
-    let event: Int
+    let viewModel: TeamEventDetailViewModel
     var body: some View {
         HStack {
             VStack{
-              Text("Event Name: \(event.description)")
-                Text(event.description)
+                Text("Event Name: \(viewModel.event.title)")
+                Text(viewModel.event.id.description)
             }
             .frame(maxWidth: .infinity)
             
@@ -28,8 +28,3 @@ struct EventView: View {
     }
 }
 
-struct EventView_Previews: PreviewProvider {
-    static var previews: some View {
-        EventView(event: 0)
-    }
-}

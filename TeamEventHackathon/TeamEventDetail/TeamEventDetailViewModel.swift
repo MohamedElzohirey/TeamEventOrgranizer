@@ -12,7 +12,12 @@ protocol TeamEventDetailInterface {
     var event: Event { get }
 }
 
-final class TeamEventDetailViewModel: TeamEventDetailInterface {
+struct TeamEventDetailViewModel: TeamEventDetailInterface, Hashable {
+    static func == (lhs: TeamEventDetailViewModel, rhs: TeamEventDetailViewModel) -> Bool {
+        return lhs.event == rhs.event
+    }
+    
+    
     var event: Event
     
     init(event: Event) {
