@@ -22,7 +22,13 @@ struct LoginView: View {
                     TeamEventDetailViewModel(event: Event(id: "5", title: "55")),
                     TeamEventDetailViewModel(event: Event(id: "6", title: "66")),
                     TeamEventDetailViewModel(event: Event(id: "7", title: "77")),
-                    TeamEventDetailViewModel(event: Event(id: "8", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "9", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "10", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "11", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "12", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "13", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "14", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "15", title: "88")),
                 ])), isActive: $isShowingDetailView) { EmptyView() }
 
                 Button("Login") {

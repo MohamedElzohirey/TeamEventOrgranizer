@@ -25,6 +25,7 @@ struct EventsListView: View {
                             isShowingDetailView = true
                         }
 
+                    Spacer()
                 }
             }
             .padding(.vertical, 24)
