@@ -32,15 +32,16 @@ struct LoginView: View {
                 }
                 HStack(alignment: .center, spacing: 0){
                     ZStack{
-                        Image("title")
+                        //Image("title")
                         Image("v")
-                            .padding([.bottom,.leading], -10)
+                            .resizable()
+                            .frame(width: 200, height: 120, alignment: .center)
                     }
                 }
-                .padding(.top,74)
-                .padding(.bottom,108)
+                .padding(.top,4)
+                .padding(.bottom,18)
                 
-                EntryFieldView(imageName: "user", placeholder: "Username", validationText: viewModel.usernamePrompt, field: $viewModel.username, strokeColorHex: "#BF9B9B")
+                EntryFieldView(imageName: "user", placeholder: "Username", validationText: viewModel.usernamePrompt, field: $viewModel.username, strokeColorHex: "#22735c")
                     .padding()
                 
                 SecureEntryFieldView(imageName: "key", placeholder: "Password", validationText: viewModel.passwordPrompt, field: $viewModel.password, strokeColorHex: "#F0F0F0")
@@ -49,13 +50,7 @@ struct LoginView: View {
                 EntryFieldView(imageName: "email", placeholder: "Email address", validationText: viewModel.emailPrompt, field: $viewModel.email, strokeColorHex: "#F0F0F0")
                     .padding()
                 
-                HStack{
-                    Spacer()
-                    Button("Forgetten password?") {
-                    }
-                    .foregroundColor(Color.init(hex: "#BF9B9B"))
-                    .padding(.trailing,50)
-                }
+      
                 .padding(.top, 25)
                 .frame(height: 20)
                 
@@ -80,17 +75,17 @@ struct LoginView: View {
                     .opacity(viewModel.canSubmit ? 1 : 0.6)
                     .disabled(!viewModel.canSubmit)
                 }
-                .background(Color.init(hex: "#733D47"))
+                .background(Color.init(hex: "#1629d9"))
                 .cornerRadius(10)
                 .padding([.leading,.trailing],36)
                 
                 HStack(alignment: .center, spacing: 0){
                     Text("Don’t have an account?")
                         .font(.system(size: 15, weight: .regular, design: .default))
-                        .foregroundColor(Color.init(hex: "#BF9B9B"))
+                        .foregroundColor(Color.init(hex: "#22735c"))
                     Button(" Sign up") {
                     }
-                    .foregroundColor(Color.init(hex: "#BF9B9B"))
+                    .foregroundColor(Color.init(hex: "#22735c"))
                     .font(.system(size: 15, weight: .bold, design: .default))
                 }
                 .padding([.leading,.trailing],36)
