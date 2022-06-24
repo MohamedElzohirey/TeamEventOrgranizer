@@ -13,100 +13,102 @@ struct LoginView: View {
     @State private var isSecure = true
     @State private var isShowingDetailView = false
     var body: some View {
-                        NavigationLink(destination: EventsListView(viewModel: TeamEventsViewModel(events: [
-                            TeamEventDetailViewModel(event: Event(id: "1", title: "11")),
-                            TeamEventDetailViewModel(event: Event(id: "2", title: "22")),
-                            TeamEventDetailViewModel(event: Event(id: "3", title: "33")),
-                            TeamEventDetailViewModel(event: Event(id: "4", title: "44")),
-                            TeamEventDetailViewModel(event: Event(id: "5", title: "55")),
-                            TeamEventDetailViewModel(event: Event(id: "6", title: "66")),
-                            TeamEventDetailViewModel(event: Event(id: "7", title: "77")),
-                            TeamEventDetailViewModel(event: Event(id: "9", title: "88")),
-                            TeamEventDetailViewModel(event: Event(id: "10", title: "88")),
-                            TeamEventDetailViewModel(event: Event(id: "11", title: "88")),
-                            TeamEventDetailViewModel(event: Event(id: "12", title: "88")),
-                            TeamEventDetailViewModel(event: Event(id: "13", title: "88")),
-                            TeamEventDetailViewModel(event: Event(id: "14", title: "88")),
-                            TeamEventDetailViewModel(event: Event(id: "15", title: "88")),
-                        ])), isActive: $isShowingDetailView) {
-                            EmptyView()
-                        }
-
-        VStack(alignment: .center, spacing: 0){
+        NavigationView {
             
-            HStack(alignment: .center, spacing: 0){
-                ZStack{
-                    Image("title")
-                    Image("v")
-                        .padding([.bottom,.leading], -10)
+            
+            
+            VStack(alignment: .center, spacing: 0){
+                NavigationLink(destination: EventsListView(viewModel: TeamEventsViewModel(events: [
+                    TeamEventDetailViewModel(event: Event(id: "1", title: "11")),
+                    TeamEventDetailViewModel(event: Event(id: "2", title: "22")),
+                    TeamEventDetailViewModel(event: Event(id: "3", title: "33")),
+                    TeamEventDetailViewModel(event: Event(id: "4", title: "44")),
+                    TeamEventDetailViewModel(event: Event(id: "5", title: "55")),
+                    TeamEventDetailViewModel(event: Event(id: "6", title: "66")),
+                    TeamEventDetailViewModel(event: Event(id: "7", title: "77")),
+                    TeamEventDetailViewModel(event: Event(id: "9", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "10", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "11", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "12", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "13", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "14", title: "88")),
+                    TeamEventDetailViewModel(event: Event(id: "15", title: "88")),
+                ])), isActive: $isShowingDetailView) {
+                    EmptyView()
                 }
-            }
-            .padding(.top,74)
-            .padding(.bottom,108)
-            
-            EntryFieldView(imageName: "user", placeholder: "Username", validationText: viewModel.usernamePrompt, field: $viewModel.username, strokeColorHex: "#BF9B9B")
-                .padding()
-            
-            SecureEntryFieldView(imageName: "key", placeholder: "Password", validationText: viewModel.passwordPrompt, field: $viewModel.password, strokeColorHex: "#F0F0F0")
-                .padding()
-            
-            EntryFieldView(imageName: "email", placeholder: "Email address", validationText: viewModel.emailPrompt, field: $viewModel.email, strokeColorHex: "#F0F0F0")
-                .padding()
-            
-            HStack{
-                Spacer()
-                Button("Forgetten password?") {
-                }
-                .foregroundColor(Color.init(hex: "#BF9B9B"))
-                .padding(.trailing,50)
-            }
-            .padding(.top, 25)
-            .frame(height: 20)
-            
-            Spacer()
-            
-            HStack{
-                
-                
-                Button(action: {
-                    isShowingDetailView = true
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("LOGIN")
-                            .font(.system(size: 20, weight: .bold, design: .default))
-                            .foregroundColor(Color.white)
-                        Spacer()
+                HStack(alignment: .center, spacing: 0){
+                    ZStack{
+                        Image("title")
+                        Image("v")
+                            .padding([.bottom,.leading], -10)
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width - 100,height: 52)
-                .contentShape(Rectangle())
-                .opacity(viewModel.canSubmit ? 1 : 0.6)
-                .disabled(!viewModel.canSubmit)
-            }
-            .background(Color.init(hex: "#733D47"))
-            .cornerRadius(10)
-            .padding([.leading,.trailing],36)
-            
-            HStack(alignment: .center, spacing: 0){
-                Text("Don’t have an account?")
-                    .font(.system(size: 15, weight: .regular, design: .default))
+                .padding(.top,74)
+                .padding(.bottom,108)
+                
+                EntryFieldView(imageName: "user", placeholder: "Username", validationText: viewModel.usernamePrompt, field: $viewModel.username, strokeColorHex: "#BF9B9B")
+                    .padding()
+                
+                SecureEntryFieldView(imageName: "key", placeholder: "Password", validationText: viewModel.passwordPrompt, field: $viewModel.password, strokeColorHex: "#F0F0F0")
+                    .padding()
+                
+                EntryFieldView(imageName: "email", placeholder: "Email address", validationText: viewModel.emailPrompt, field: $viewModel.email, strokeColorHex: "#F0F0F0")
+                    .padding()
+                
+                HStack{
+                    Spacer()
+                    Button("Forgetten password?") {
+                    }
                     .foregroundColor(Color.init(hex: "#BF9B9B"))
-                Button(" Sign up") {
+                    .padding(.trailing,50)
                 }
-                .foregroundColor(Color.init(hex: "#BF9B9B"))
-                .font(.system(size: 15, weight: .bold, design: .default))
+                .padding(.top, 25)
+                .frame(height: 20)
+                
+                Spacer()
+                
+                HStack{
+                    
+                    
+                    Button(action: {
+                        isShowingDetailView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("LOGIN")
+                                .font(.system(size: 20, weight: .bold, design: .default))
+                                .foregroundColor(Color.white)
+                            Spacer()
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 100,height: 52)
+                    .contentShape(Rectangle())
+                    .opacity(viewModel.canSubmit ? 1 : 0.6)
+                    .disabled(!viewModel.canSubmit)
+                }
+                .background(Color.init(hex: "#733D47"))
+                .cornerRadius(10)
+                .padding([.leading,.trailing],36)
+                
+                HStack(alignment: .center, spacing: 0){
+                    Text("Don’t have an account?")
+                        .font(.system(size: 15, weight: .regular, design: .default))
+                        .foregroundColor(Color.init(hex: "#BF9B9B"))
+                    Button(" Sign up") {
+                    }
+                    .foregroundColor(Color.init(hex: "#BF9B9B"))
+                    .font(.system(size: 15, weight: .bold, design: .default))
+                }
+                .padding([.leading,.trailing],36)
+                .padding(.top, 30)
+                .frame(height: 20)
+                
+                
+                Spacer()
             }
-            .padding([.leading,.trailing],36)
-            .padding(.top, 30)
-            .frame(height: 20)
-            
-            
-            Spacer()
         }
     }
 }
-
 
 struct EntryFieldView: View {
     var imageName: String
