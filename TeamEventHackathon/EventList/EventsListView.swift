@@ -13,24 +13,23 @@ struct EventsListView: View {
     @State private var isShowingDetailView = false
     @State private var isShowingNewView = false
     @State private var index = 0
+    @State private var selectedEvent: TeamEventDetailScreen!
     
     var body: some View {
-        NavigationLink(destination: TeamEventDetailScreen(viewModel: viewModel.events[0]), isActive: $isShowingDetailView) { EmptyView() }
-        NavigationLink(destination: NewEventView(), isActive: $isShowingNewView) { EmptyView() }
-
-        ZStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 0) {
+        NavigationLink(
+            destination: selectedEvent,
+            isActive: $isShowingDetailView) { EmptyView() }
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 0) {
+                ForEach(viewModel.events, id: \.self) { event in
+                    EventView(viewModel: TeamEventDetailViewModel(event: event))
+                        .tag(event.id)
+                        .frame(maxWidth: .infinity)
+                        .onTapGesture {
+                            isShowingDetailView = true
+                            selectedEvent = TeamEventDetailScreen(viewModel: TeamEventDetailViewModel(event: event))
+                        }
                     
-                    ForEach(viewModel.events, id: \.self) { event in
-                        EventView(viewModel: event)
-                            .frame(maxWidth: .infinity)
-                            .onTapGesture {
-                                isShowingDetailView = true
-                            }
-                        
-                        Spacer()
-                    }
                 }
                 .padding(.vertical, 24)
                 .frame(maxWidth: .infinity)
@@ -61,6 +60,9 @@ struct EventsListView: View {
                             y: 3)
                 }
             }
+            .padding(.vertical, 24)
+            .frame(maxWidth: .infinity)
+            .background(Color.red)
         }
         
         
@@ -70,13 +72,13 @@ struct EventsListView: View {
 
 protocol TeamEventsInterface {
     
-    var events: [TeamEventDetailViewModel] { get }
+    var events: [Event] { get }
 }
 
 final class TeamEventsViewModel: TeamEventsInterface {
-    var events: [TeamEventDetailViewModel]
+    var events: [Event]
     
-    init(events: [TeamEventDetailViewModel]) {
+    init(events: [Event]) {
         self.events = events
     }
     
