@@ -8,27 +8,46 @@
 import SwiftUI
 
 struct EventsListView: View {
-    var events = 1...1000
+    let viewModel: TeamEventsInterface
+
+    @State private var isShowingDetailView = false
+    @State private var index = 0
+
     var body: some View {
+        NavigationLink(destination: TeamEventDetailScreen(viewModel: viewModel.events[0]), isActive: $isShowingDetailView) { EmptyView() }
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 0) {
 
-                ForEach(events, id: \.self) { event in
-                    EventView(event: event)
+                ForEach(viewModel.events, id: \.self) { event in
+                    EventView(viewModel: event)
                         .frame(maxWidth: .infinity)
+                        .onTapGesture {
+                            isShowingDetailView = true
+                        }
 
                 }
             }
             .padding(.vertical, 24)
             .frame(maxWidth: .infinity)
             .background(Color.red)
+            
 
         }
     }
 }
 
-struct EventsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        EventsListView()
-    }
+
+protocol TeamEventsInterface {
+    
+    var events: [TeamEventDetailViewModel] { get }
 }
+
+final class TeamEventsViewModel: TeamEventsInterface {
+    var events: [TeamEventDetailViewModel]
+    
+    init(events: [TeamEventDetailViewModel]) {
+        self.events = events
+    }
+    
+}
+
