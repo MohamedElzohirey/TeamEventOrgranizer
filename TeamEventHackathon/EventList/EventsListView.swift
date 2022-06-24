@@ -19,6 +19,9 @@ struct EventsListView: View {
         NavigationLink(
             destination: selectedEvent,
             isActive: $isShowingDetailView) { EmptyView() }
+        NavigationLink(
+            destination: NewEventView(),
+            isActive: $isShowingNewView) { EmptyView() }
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
@@ -60,7 +63,7 @@ struct EventsListView: View {
                             x: 3,
                             y: 3)
                 }
-            }   
+            }
         }
     }
 }
