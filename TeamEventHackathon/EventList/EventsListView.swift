@@ -30,7 +30,6 @@ struct EventsListView: View {
                                 isShowingDetailView = true
                                 selectedEvent = TeamEventDetailScreen(viewModel: TeamEventDetailViewModel(event: event))
                             }
-                        
                     }
                     .padding(.vertical, 24)
                     .frame(maxWidth: .infinity)
@@ -38,8 +37,6 @@ struct EventsListView: View {
                     
                     
                 }
-                
-                
             }
             
             VStack {
@@ -63,10 +60,8 @@ struct EventsListView: View {
                             x: 3,
                             y: 3)
                 }
-            }
-       
+            }   
         }
-        
     }
 }
 
