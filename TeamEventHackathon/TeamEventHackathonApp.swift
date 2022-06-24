@@ -15,4 +15,3 @@ struct TeamEventHackathonApp: App {
         }
     }
 }
-//
