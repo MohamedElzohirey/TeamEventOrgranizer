@@ -11,10 +11,13 @@ struct EventsListView: View {
     let viewModel: TeamEventsInterface
     
     @State private var isShowingDetailView = false
+    @State private var isShowingNewView = false
     @State private var index = 0
     
     var body: some View {
         NavigationLink(destination: TeamEventDetailScreen(viewModel: viewModel.events[0]), isActive: $isShowingDetailView) { EmptyView() }
+        NavigationLink(destination: NewEventView(), isActive: $isShowingNewView) { EmptyView() }
+
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
@@ -41,7 +44,7 @@ struct EventsListView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        //self.items.append(Item(value: "Item"))
+                        isShowingNewView = true
                     }, label: {
                         Text("+")
                             .font(.system(.largeTitle))
