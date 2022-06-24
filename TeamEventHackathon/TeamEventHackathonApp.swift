@@ -11,8 +11,8 @@ import SwiftUI
 struct TeamEventHackathonApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }
-//
+
