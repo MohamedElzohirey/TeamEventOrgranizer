@@ -7,35 +7,269 @@
 
 import SwiftUI
 
-
 struct LoginView: View {
+    
+    @StateObject private var viewModel = LoginViewModel()
+    @State private var isSecure = true
     @State private var isShowingDetailView = false
-
     var body: some View {
-        NavigationView {
-            VStack {
-                NavigationLink(destination: EventsListView(viewModel: TeamEventsViewModel(events: [
-                    TeamEventDetailViewModel(event: Event(id: "1", title: "11")),
-                    TeamEventDetailViewModel(event: Event(id: "2", title: "22")),
-                    TeamEventDetailViewModel(event: Event(id: "3", title: "33")),
-                    TeamEventDetailViewModel(event: Event(id: "4", title: "44")),
-                    TeamEventDetailViewModel(event: Event(id: "5", title: "55")),
-                    TeamEventDetailViewModel(event: Event(id: "6", title: "66")),
-                    TeamEventDetailViewModel(event: Event(id: "7", title: "77")),
-                    TeamEventDetailViewModel(event: Event(id: "9", title: "88")),
-                    TeamEventDetailViewModel(event: Event(id: "10", title: "88")),
-                    TeamEventDetailViewModel(event: Event(id: "11", title: "88")),
-                    TeamEventDetailViewModel(event: Event(id: "12", title: "88")),
-                    TeamEventDetailViewModel(event: Event(id: "13", title: "88")),
-                    TeamEventDetailViewModel(event: Event(id: "14", title: "88")),
-                    TeamEventDetailViewModel(event: Event(id: "15", title: "88")),
-                ])), isActive: $isShowingDetailView) { EmptyView() }
+                        NavigationLink(destination: EventsListView(viewModel: TeamEventsViewModel(events: [
+                            TeamEventDetailViewModel(event: Event(id: "1", title: "11")),
+                            TeamEventDetailViewModel(event: Event(id: "2", title: "22")),
+                            TeamEventDetailViewModel(event: Event(id: "3", title: "33")),
+                            TeamEventDetailViewModel(event: Event(id: "4", title: "44")),
+                            TeamEventDetailViewModel(event: Event(id: "5", title: "55")),
+                            TeamEventDetailViewModel(event: Event(id: "6", title: "66")),
+                            TeamEventDetailViewModel(event: Event(id: "7", title: "77")),
+                            TeamEventDetailViewModel(event: Event(id: "9", title: "88")),
+                            TeamEventDetailViewModel(event: Event(id: "10", title: "88")),
+                            TeamEventDetailViewModel(event: Event(id: "11", title: "88")),
+                            TeamEventDetailViewModel(event: Event(id: "12", title: "88")),
+                            TeamEventDetailViewModel(event: Event(id: "13", title: "88")),
+                            TeamEventDetailViewModel(event: Event(id: "14", title: "88")),
+                            TeamEventDetailViewModel(event: Event(id: "15", title: "88")),
+                        ])), isActive: $isShowingDetailView) {
+                            EmptyView()
+                        }
 
-                Button("Login") {
-                    isShowingDetailView = true
+        VStack(alignment: .center, spacing: 0){
+            
+            HStack(alignment: .center, spacing: 0){
+                ZStack{
+                    Image("title")
+                    Image("v")
+                        .padding([.bottom,.leading], -10)
                 }
             }
-            .navigationTitle("Login")
+            .padding(.top,74)
+            .padding(.bottom,108)
+            
+            EntryFieldView(imageName: "user", placeholder: "Username", validationText: viewModel.usernamePrompt, field: $viewModel.username, strokeColorHex: "#BF9B9B")
+                .padding()
+            
+            SecureEntryFieldView(imageName: "key", placeholder: "Password", validationText: viewModel.passwordPrompt, field: $viewModel.password, strokeColorHex: "#F0F0F0")
+                .padding()
+            
+            EntryFieldView(imageName: "email", placeholder: "Email address", validationText: viewModel.emailPrompt, field: $viewModel.email, strokeColorHex: "#F0F0F0")
+                .padding()
+            
+            HStack{
+                Spacer()
+                Button("Forgetten password?") {
+                }
+                .foregroundColor(Color.init(hex: "#BF9B9B"))
+                .padding(.trailing,50)
+            }
+            .padding(.top, 25)
+            .frame(height: 20)
+            
+            Spacer()
+            
+            HStack{
+                
+                
+                Button(action: {
+                    isShowingDetailView = true
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("LOGIN")
+                            .font(.system(size: 20, weight: .bold, design: .default))
+                            .foregroundColor(Color.white)
+                        Spacer()
+                    }
+                }
+                .frame(width: UIScreen.main.bounds.width - 100,height: 52)
+                .contentShape(Rectangle())
+                .opacity(viewModel.canSubmit ? 1 : 0.6)
+                .disabled(!viewModel.canSubmit)
+            }
+            .background(Color.init(hex: "#733D47"))
+            .cornerRadius(10)
+            .padding([.leading,.trailing],36)
+            
+            HStack(alignment: .center, spacing: 0){
+                Text("Don’t have an account?")
+                    .font(.system(size: 15, weight: .regular, design: .default))
+                    .foregroundColor(Color.init(hex: "#BF9B9B"))
+                Button(" Sign up") {
+                }
+                .foregroundColor(Color.init(hex: "#BF9B9B"))
+                .font(.system(size: 15, weight: .bold, design: .default))
+            }
+            .padding([.leading,.trailing],36)
+            .padding(.top, 30)
+            .frame(height: 20)
+            
+            
+            Spacer()
         }
+    }
+}
+
+
+struct EntryFieldView: View {
+    var imageName: String
+    var placeholder: String
+    var validationText: String
+    @Binding var field: String
+    var strokeColorHex:String
+    var body: some View {
+        VStack(alignment: .leading) {
+            
+            HStack(alignment: .center, spacing: 11) {
+                Image(imageName)
+                    .renderingMode(.original)
+                    .padding(.leading,15)
+                TextField(placeholder, text: $field)
+            }
+            .frame(height: 52)
+            .autocapitalization(.none)
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.init(hex: strokeColorHex), lineWidth: 1))
+            .padding([.leading,.trailing],36)
+            
+            Text(validationText)
+                .foregroundColor(Color.red)
+                .fixedSize(horizontal: false, vertical: true)
+                .font(.caption)
+                .padding([.leading,.trailing],36)
+                .padding(.bottom,4)
+        }
+    }
+}
+
+struct SecureEntryFieldView: View {
+    var imageName: String
+    var placeholder: String
+    var validationText: String
+    @Binding var field: String
+    @State private var isSecure:Bool = true
+    var strokeColorHex:String
+    var body: some View {
+        VStack(alignment: .leading) {
+            
+            HStack(alignment: .center, spacing: 11) {
+                Image(imageName)
+                    .renderingMode(.original)
+                    .padding(.leading,15)
+                
+                if isSecure {
+                    SecureField(placeholder, text: $field)
+                    
+                    Button(action: {
+                        isSecure.toggle()
+                    }) {
+                        Image("eye")
+                            .renderingMode(.original)
+                            .padding(.trailing,15)
+                    }
+                    
+                } else {
+                    TextField(placeholder, text: $field)
+                    Button(action: {
+                        isSecure.toggle()
+                    }) {
+                        Image("eye")
+                            .renderingMode(.original)
+                            .padding(.trailing,15)
+                    }
+                }
+            }
+            .frame(height: 52)
+            .autocapitalization(.none)
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.init(hex: strokeColorHex), lineWidth: 1))
+            .padding([.leading,.trailing],36)
+            
+            Text(validationText)
+                .foregroundColor(Color.red)
+                .fixedSize(horizontal: false, vertical: true)
+                .font(.caption)
+                .padding([.leading,.trailing],36)
+                .padding(.bottom,4)
+        }
+    }
+}
+
+
+
+
+import Combine
+
+class LoginViewModel: ObservableObject {
+    
+    @Published var email = "mohamed.elzohirey@gmail.com"
+    @Published var password = "abcdefG1"
+    @Published var username = "mohamed"
+    
+    @Published var isEmailCriteriaValid = false
+    @Published var isPasswordCriteriaValid = false
+    @Published var isUsernameCriteriaValid = false
+    @Published var canSubmit = false
+    private var cancellableSet: Set<AnyCancellable> = []
+    
+    let emailPredicate = NSPredicate(format: "SELF MATCHES %@", "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")
+    let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")
+    let usernamePredicate = NSPredicate(format: "SELF MATCHES %@ ", "[a-za-z0-9!@#$%^&*()._-]{1,16}")
+    
+    init() {
+        
+        $username
+            .map { username in
+                return self.usernamePredicate.evaluate(with: username)
+            }
+            .assign(to: \.isUsernameCriteriaValid, on: self)
+            .store(in: &cancellableSet)
+        
+        $password
+            .map { password in
+                return self.passwordPredicate.evaluate(with: password)
+            }
+            .assign(to: \.isPasswordCriteriaValid, on: self)
+            .store(in: &cancellableSet)
+        
+        $email
+            .map { email in
+                return self.emailPredicate.evaluate(with: email)
+            }
+            .assign(to: \.isEmailCriteriaValid, on: self)
+            .store(in: &cancellableSet)
+        
+        
+        Publishers.CombineLatest3($isUsernameCriteriaValid, $isPasswordCriteriaValid, $isEmailCriteriaValid)
+            .map { isUsernameCriteriaValid, isPasswordCriteriaValid, isEmailCriteriaValid in
+                return (isUsernameCriteriaValid && isPasswordCriteriaValid && isEmailCriteriaValid)
+            }
+            .assign(to: \.canSubmit, on: self)
+            .store(in: &cancellableSet)
+    }
+    
+    
+    var usernamePrompt: String {
+        isUsernameCriteriaValid ?
+        ""
+        :
+        "Should not have spaces and no upper case alphabet."
+    }
+    
+    var emailPrompt: String {
+        isEmailCriteriaValid ?
+        ""
+        :
+        "Enter a valid email address"
+    }
+    
+    var passwordPrompt: String {
+        isPasswordCriteriaValid ?
+        ""
+        :
+        "Should have 8 charecters, 1 number, 1 upper case alphabet, 1 lowercase alphabet."
+    }
+    
+    
+    
+    func login() {
+        username = ""
+        password = ""
+        email = ""
     }
 }
