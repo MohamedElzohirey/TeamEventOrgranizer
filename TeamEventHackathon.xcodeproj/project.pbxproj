@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0C40A12865C5D20026426F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0C40A02865C5D20026426F /* GoogleService-Info.plist */; };
+		3B5DE4F72865EF14007ADCD4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DE4F52865EF14007ADCD4 /* EventView.swift */; };
+		3B5DE4F82865EF14007ADCD4 /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DE4F62865EF14007ADCD4 /* EventsListView.swift */; };
 		7B74221AA61659DA417BBFC4 /* Pods_TeamEventHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18D7DF5E385C7866E8FAF46 /* Pods_TeamEventHackathon.framework */; };
 		7D81EE4F2865BE020074B4E4 /* TeamEventHackathonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81EE4E2865BE020074B4E4 /* TeamEventHackathonApp.swift */; };
 		7D81EE512865BE020074B4E4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81EE502865BE020074B4E4 /* LoginView.swift */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		0330033553D44CB05E05FED8 /* Pods-TeamEventHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamEventHackathon.release.xcconfig"; path = "Target Support Files/Pods-TeamEventHackathon/Pods-TeamEventHackathon.release.xcconfig"; sourceTree = "<group>"; };
 		3B0C40A02865C5D20026426F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B5DE4F52865EF14007ADCD4 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		3B5DE4F62865EF14007ADCD4 /* EventsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListView.swift; sourceTree = "<group>"; };
 		65C084FB6ADC8AA9CFD2CDF8 /* Pods-TeamEventHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamEventHackathon.debug.xcconfig"; path = "Target Support Files/Pods-TeamEventHackathon/Pods-TeamEventHackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		7D81EE4B2865BE020074B4E4 /* TeamEventHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamEventHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D81EE4E2865BE020074B4E4 /* TeamEventHackathonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEventHackathonApp.swift; sourceTree = "<group>"; };
@@ -84,21 +87,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02DE3CD8D5957845058A6541 /* Frameworks */ = {
+		3B5DE4F42865EF14007ADCD4 /* EventList */ = {
 			isa = PBXGroup;
 			children = (
-				F29B924C99C5585BDB8EF4ED /* Pods_TeamEventHackathon.framework */,
+				3B5DE4F52865EF14007ADCD4 /* EventView.swift */,
+				3B5DE4F62865EF14007ADCD4 /* EventsListView.swift */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		23A028FEFDA5AD1615685D6F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5BB27E8238AE2D9E5F74CA6F /* Pods-TeamEventHackathon.debug.xcconfig */,
-				A438FE459BF15A992F6A9D3C /* Pods-TeamEventHackathon.release.xcconfig */,
-			);
-			path = Pods;
+			path = EventList;
 			sourceTree = "<group>";
 		};
 		7D81EE422865BE020074B4E4 = {
@@ -126,6 +121,7 @@
 		7D81EE4D2865BE020074B4E4 /* TeamEventHackathon */ = {
 			isa = PBXGroup;
 			children = (
+				3B5DE4F42865EF14007ADCD4 /* EventList */,
 				7D81EE7E2865CDFE0074B4E4 /* Models */,
 				7D81EE7A2865CC760074B4E4 /* TeamEventDetail */,
 				3B0C40A02865C5D20026426F /* GoogleService-Info.plist */,
@@ -133,8 +129,6 @@
 				7D81EE502865BE020074B4E4 /* LoginView.swift */,
 				7D81EE522865BE030074B4E4 /* Assets.xcassets */,
 				7D81EE542865BE030074B4E4 /* Preview Content */,
-				3B65BFCF2865CC1500AE7154 /* EventsListView.swift */,
-				3B65BFD12865CC5100AE7154 /* EventView.swift */,
 			);
 			path = TeamEventHackathon;
 			sourceTree = "<group>";
@@ -372,11 +366,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D81EE512865BE020074B4E4 /* ContentView.swift in Sources */,
+				7D81EE512865BE020074B4E4 /* LoginView.swift in Sources */,
 				7D81EE7C2865CDAE0074B4E4 /* TeamEventDetailViewModel.swift in Sources */,
 				7D81EE4F2865BE020074B4E4 /* TeamEventHackathonApp.swift in Sources */,
+				3B5DE4F72865EF14007ADCD4 /* EventView.swift in Sources */,
 				7D81EE792865CC640074B4E4 /* TeamEventDetailScreen.swift in Sources */,
 				7D81EE802865CE060074B4E4 /* Event.swift in Sources */,
+				3B5DE4F82865EF14007ADCD4 /* EventsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
