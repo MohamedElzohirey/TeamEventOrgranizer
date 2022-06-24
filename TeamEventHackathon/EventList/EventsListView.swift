@@ -19,21 +19,25 @@ struct EventsListView: View {
         NavigationLink(
             destination: selectedEvent,
             isActive: $isShowingDetailView) { EmptyView() }
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 0) {
-                ForEach(viewModel.events, id: \.self) { event in
-                    EventView(viewModel: TeamEventDetailViewModel(event: event))
-                        .tag(event.id)
-                        .frame(maxWidth: .infinity)
-                        .onTapGesture {
-                            isShowingDetailView = true
-                            selectedEvent = TeamEventDetailScreen(viewModel: TeamEventDetailViewModel(event: event))
-                        }
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 0) {
+                    ForEach(viewModel.events, id: \.self) { event in
+                        EventView(viewModel: TeamEventDetailViewModel(event: event))
+                            .tag(event.id)
+                            .frame(maxWidth: .infinity)
+                            .onTapGesture {
+                                isShowingDetailView = true
+                                selectedEvent = TeamEventDetailScreen(viewModel: TeamEventDetailViewModel(event: event))
+                            }
+                        
+                    }
+                    .padding(.vertical, 24)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.red)
+                    
                     
                 }
-                .padding(.vertical, 24)
-                .frame(maxWidth: .infinity)
-                .background(Color.red)
                 
                 
             }
@@ -60,11 +64,8 @@ struct EventsListView: View {
                             y: 3)
                 }
             }
-            .padding(.vertical, 24)
-            .frame(maxWidth: .infinity)
-            .background(Color.red)
+       
         }
-        
         
     }
 }
