@@ -51,7 +51,7 @@ struct EventsListView: View {
                     }, label: {
                         Text("+")
                             .font(.system(.largeTitle))
-                            .frame(width: 77, height: 70)
+                            .frame(width: 57, height: 50)
                             .foregroundColor(Color.white)
                             .padding(.bottom, 7)
                     })

@@ -11,6 +11,7 @@
 		3B5DE4F82865EF14007ADCD4 /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DE4F62865EF14007ADCD4 /* EventsListView.swift */; };
 		3B5DE4FB2865F9EA007ADCD4 /* NewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DE4FA2865F9EA007ADCD4 /* NewEventView.swift */; };
 		3B5DE4FD2865FC6D007ADCD4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DE4FC2865FC6D007ADCD4 /* Extensions.swift */; };
+		3B5DE5002866FE24007ADCD4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5DE4FF2866FE24007ADCD4 /* SignUpView.swift */; };
 		7B74221AA61659DA417BBFC4 /* Pods_TeamEventHackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18D7DF5E385C7866E8FAF46 /* Pods_TeamEventHackathon.framework */; };
 		7D81EE4F2865BE020074B4E4 /* TeamEventHackathonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81EE4E2865BE020074B4E4 /* TeamEventHackathonApp.swift */; };
 		7D81EE512865BE020074B4E4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81EE502865BE020074B4E4 /* LoginView.swift */; };
@@ -48,6 +49,7 @@
 		3B5DE4F62865EF14007ADCD4 /* EventsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListView.swift; sourceTree = "<group>"; };
 		3B5DE4FA2865F9EA007ADCD4 /* NewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventView.swift; sourceTree = "<group>"; };
 		3B5DE4FC2865FC6D007ADCD4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3B5DE4FF2866FE24007ADCD4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		65C084FB6ADC8AA9CFD2CDF8 /* Pods-TeamEventHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamEventHackathon.debug.xcconfig"; path = "Target Support Files/Pods-TeamEventHackathon/Pods-TeamEventHackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		7D81EE4B2865BE020074B4E4 /* TeamEventHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamEventHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D81EE4E2865BE020074B4E4 /* TeamEventHackathonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEventHackathonApp.swift; sourceTree = "<group>"; };
@@ -108,6 +110,14 @@
 			path = NewEvent;
 			sourceTree = "<group>";
 		};
+		3B5DE4FE2866FE19007ADCD4 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				3B5DE4FF2866FE24007ADCD4 /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		7D81EE422865BE020074B4E4 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 		7D81EE4D2865BE020074B4E4 /* TeamEventHackathon */ = {
 			isa = PBXGroup;
 			children = (
+				3B5DE4FE2866FE19007ADCD4 /* SignUp */,
 				3B5DE4F92865F9DA007ADCD4 /* NewEvent */,
 				3B5DE4F42865EF14007ADCD4 /* EventList */,
 				7D81EE7E2865CDFE0074B4E4 /* Models */,
@@ -386,6 +397,7 @@
 				7D81EE4F2865BE020074B4E4 /* TeamEventHackathonApp.swift in Sources */,
 				3B5DE4F72865EF14007ADCD4 /* EventView.swift in Sources */,
 				3B5DE4FB2865F9EA007ADCD4 /* NewEventView.swift in Sources */,
+				3B5DE5002866FE24007ADCD4 /* SignUpView.swift in Sources */,
 				7D81EE792865CC640074B4E4 /* TeamEventDetailScreen.swift in Sources */,
 				7D81EE802865CE060074B4E4 /* Event.swift in Sources */,
 				3B5DE4F82865EF14007ADCD4 /* EventsListView.swift in Sources */,
