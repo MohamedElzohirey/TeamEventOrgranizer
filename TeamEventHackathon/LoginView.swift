@@ -12,6 +12,7 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @State private var isSecure = true
     @State private var isShowingDetailView = false
+    @State private var isShowingSignUpView = false
     var body: some View {
         NavigationView {
             
@@ -28,6 +29,9 @@ struct LoginView: View {
                     Event(id: "7", title: "77", description: descriptionText),
                     Event(id: "8", title: "88", description: descriptionText),
                 ])), isActive: $isShowingDetailView) {
+                    EmptyView()
+                }
+                NavigationLink(destination: SignUpView(), isActive: $isShowingSignUpView) {
                     EmptyView()
                 }
                 HStack(alignment: .center, spacing: 0){
@@ -84,6 +88,7 @@ struct LoginView: View {
                         .font(.system(size: 15, weight: .regular, design: .default))
                         .foregroundColor(Color.init(hex: "#22735c"))
                     Button(" Sign up") {
+                        isShowingSignUpView = true
                     }
                     .foregroundColor(Color.init(hex: "#22735c"))
                     .font(.system(size: 15, weight: .bold, design: .default))
