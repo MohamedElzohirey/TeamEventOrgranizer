@@ -20,14 +20,14 @@ struct LoginView: View {
             
             VStack(alignment: .center, spacing: 0){
                 NavigationLink(destination: EventsListView(viewModel: TeamEventsViewModel(events: [
-                    Event(id: "1", title: "11", description: descriptionText),
-                    Event(id: "2", title: "22", description: descriptionText),
-                    Event(id: "3", title: "33", description: descriptionText),
-                    Event(id: "4", title: "44", description: descriptionText),
-                    Event(id: "5", title: "55", description: descriptionText),
-                    Event(id: "6", title: "66", description: descriptionText),
-                    Event(id: "7", title: "77", description: descriptionText),
-                    Event(id: "8", title: "88", description: descriptionText),
+                    Event(id: "1", title: "Credit team meeting - May 2022", description: descriptionText),
+                    Event(id: "2", title: "Loans team meeting - May 2022", description: descriptionText),
+                    Event(id: "3", title: "Bank meeting - May 2022", description: descriptionText),
+                    Event(id: "4", title: "XYZ meeting - May 2022", description: descriptionText),
+                    Event(id: "5", title: "Shopping team meeting - May 2022", description: descriptionText),
+                    Event(id: "6", title: "Play team meeting - May 2022", description: descriptionText),
+                    Event(id: "7", title: "Creditteam meeting - May 2022", description: descriptionText),
+                    Event(id: "8", title: "FeWo team meeting - May 2022", description: descriptionText),
                 ])), isActive: $isShowingDetailView) {
                     EmptyView()
                 }
