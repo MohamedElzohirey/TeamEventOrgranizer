@@ -10,10 +10,14 @@ import SwiftUI
 struct EventView: View {
     let viewModel: TeamEventDetailViewModel
     var body: some View {
-        HStack {
+        HStack(alignment: .center, spacing: 0, content: {
             VStack{
+                Text("Event Name:")
+                    .font(.headline).bold()
+                    
                 Text("Event Name: \(viewModel.event.title)")
-                Text(viewModel.event.id.description)
+                Text("Time: " + "Friday 14.03.2022 18:30")
+                    .foregroundColor(.blue)
             }
             .frame(maxWidth: .infinity)
             
@@ -21,10 +25,7 @@ struct EventView: View {
             Image("event")
                 .resizable()
                 .frame(width: 100, height: 100, alignment: .center)
-            
-        }
-        .background(Color.yellow)
-
+        })
 
     }
 }

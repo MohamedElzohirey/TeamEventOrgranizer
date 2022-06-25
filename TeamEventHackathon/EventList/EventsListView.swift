@@ -36,8 +36,6 @@ struct EventsListView: View {
                     }
                     .padding(.vertical, 24)
                     .frame(maxWidth: .infinity)
-                    .background(Color.red)
-                    
                     
                 }
             }
